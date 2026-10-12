@@ -44,10 +44,10 @@ public class MenuItemProxy implements MenuItemProxyInterface{
 
     private MenuItem fallBackById(Long id, Throwable exception){
         //simple version
-        return new MenuItem(id," fallback pizza",new BigDecimal(16),1L);
+        //return new MenuItem(id," fallback pizza",new BigDecimal(16),1L);
 
         //with cache from findAll
-        /*System.out.println("via fallback get from cache");
+        System.out.println("via fallback get from cache");
         Cache cache = cacheManager.getCache("menu-items");
 
         if (cache != null) {
@@ -58,7 +58,7 @@ public class MenuItemProxy implements MenuItemProxyInterface{
             if (menuItems != null) {
                 System.out.println("Returning cached menuItem.");
                 MenuItem fromCache = menuItems.stream().filter(mi->mi.getId().equals(id)).findFirst().get();
-                fromCache.setName("from cache");
+                //fromCache.setName("from cache");
                 return fromCache;
             }
         }
@@ -66,6 +66,6 @@ public class MenuItemProxy implements MenuItemProxyInterface{
         throw new MenuServiceUnavailableException(
                 "Menu Service unavailable and no cached data exists in cache",
                 exception
-        ); */
+        );
     }
 }
